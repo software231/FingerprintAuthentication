@@ -86,16 +86,18 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 if (initCipher()) {
-                    cryptoObject = new FingerprintManager.CryptoObject(cipher);
-                    FingerprintHandler helper = new FingerprintHandler(this);
-                    helper.startAuth(fingerprintManager, cryptoObject);
+                    autehnticate();
                 }
             }
 
         }
     }
 
-
+    private void autehnticate() {
+        cryptoObject = new FingerprintManager.CryptoObject(cipher);
+        FingerprintHandler helper = new FingerprintHandler(this);
+        helper.startAuth(fingerprintManager, cryptoObject);
+    }
 
 
     private void generateKey() throws FingerprintException {
